@@ -5,7 +5,7 @@ const IowaNavbar = () => {
   return (
     <nav
       className="navbar navbar-expand-lg navbar-light px-4  "
-      style={{ backgroundColor: "#FFCD00" }}
+      style={{ backgroundColor: "#FFCD00", fontFamily: "Antonio, sans-serif" }}
     >
       <a className="navbar-brand" href="#">
         <img
@@ -15,7 +15,7 @@ const IowaNavbar = () => {
           alt="University of Iowa Logo"
           style={{ maxHeight: "67.5px" }}
         />
-        <span className="fw-bold ms-3" style={{ fontSize: "1.25rem" }}>
+        <span className="fw-bold ms-3" style={{ fontSize: "1.5rem" }}>
           University of Iowa Reimbursement Portal
         </span>
       </a>
