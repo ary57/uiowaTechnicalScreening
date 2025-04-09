@@ -11,6 +11,7 @@
 ## Personal Additions
 
 - Added HawkID field. So each submission can be traced to a unique employee.
+- Disabled the submit button until all 3 fields (HawkID, Date, Receipt) are filled for an intuitive user experience.
 
 ## Design
 
@@ -20,4 +21,7 @@
 
 ## Frontend
 
-**Tools used:** ReactJS, Bootstrap, CSS
+**Tools used:** ReactJS, Bootstrap, CSS, React-Bootstrap
+
+- The current design looks different from what I had designed.
+  - I was able to leverage the react-bootstrap form components for faster developement.
