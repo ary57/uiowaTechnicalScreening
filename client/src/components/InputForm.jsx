@@ -7,7 +7,7 @@ function InputForm() {
   // Input Fields
   const [hawkID, setHawkID] = useState("");
   const [date, setDate] = useState("");
-  const [amount, setAmount] = useState(0);
+  const [amount, setAmount] = useState(null);
   const [receipt, setReceipt] = useState(null);
   const [description, setDescription] = useState("");
 
