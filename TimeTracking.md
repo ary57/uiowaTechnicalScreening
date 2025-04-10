@@ -20,4 +20,8 @@ Session 1: Initial Frontend design and functionality done.
 
 Session 2: backend
 
-**Session Started:** 4:30
+**Session Started:** 4:30pm
+
+**Session Ended:** 6:04pm
+
+**Total Time:** 1 hour 4 minutes
