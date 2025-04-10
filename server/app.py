@@ -6,6 +6,11 @@ from datetime import datetime
 import db
 import uuid
 import os
+import logger
+
+# Initialize logger
+logger = logger.get_logger(__name__)
+
 
 # Constants - Ensure receipts folder exists
 RECEIPT_DIR = "receipts"
@@ -15,6 +20,7 @@ app = Flask(__name__, static_folder=FRONTEND_BUILD_DIR, static_url_path="")
 CORS(app)
 
 # Initialize the database if it doesn't exist
+logger.info("Initializing database if not already initialized")
 db.init_db()
 
 
@@ -25,13 +31,16 @@ def serve_react():
 @app.route("/api/submitReimbursement", methods=['POST'])
 def submit_reimbursement():
     try:
-
+        logger.info("==========================")
+        logger.info("Received reimbursement request")
+        logger.info(f"Request data - hawkID: {request.form.get('hawkID')}, date: {request.form.get('date')}, amount: {request.form.get('amount')}, description: {request.form.get('description')}, receipt filename: {request.files.get('receipt').filename if request.files.get('receipt') else None}")
         hawkID_init = request.form.get('hawkID')
         date_init = request.form.get('date')
         amount_init = request.form.get('amount')
         receipt_init = request.files.get('receipt')
         description_init = request.form.get('description')
-
+        
+        logger.info("Parsing inputs")
         hawkID, date, amount, receipt, description = parse_inputs(
             hawkID_init, date_init, amount_init, receipt_init, description_init
         )
@@ -46,7 +55,8 @@ def submit_reimbursement():
             receipt=receipt.read(),
             description=description
         )
-
+        logger.info("Reimbursement request processed successfully")
+        logger.info("==========================")
         return Response(status=200, mimetype="application/json")
     except Exception as err:
         print(f"Error: {err}")
@@ -57,7 +67,9 @@ def save_receipt(hawkID:str,date:str, amount:str, receipt: FileStorage) -> None:
     Saves the receipt to a file and returns the file path.
     """
     if receipt:
+        logger.info("info", f"Saving receipt for hawkID: {hawkID}, date: {date}, amount: {amount}")
         filename = f"{hawkID}_{date}_{amount}_{uuid.uuid4()}.{receipt.filename.split('.')[-1]}"
+        logger.info("info", f"Receipt filename: {filename}")
         filepath = f"{RECEIPT_DIR}/{filename}"
         receipt.save(filepath)
 
