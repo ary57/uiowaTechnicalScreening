@@ -1,56 +1,83 @@
-# Technical Screening Submission - Abhishek Aryal
+# Setup Instruction
 
-## Note:
+## Notes:
 
-- Please see Setup.md for setup instructions.
-- Please see TimeTracking.md for time.
-- I'd recommend installing SQLite3 Editor Extension on VSCode to visualize the database.
+- Note: This project was done on a macOS, so commands may be different if on a different OS.
 
-## Initial Estimate
+  - I have included equivalent commands for Windows, but haven't tested them myself.
 
-- This is my current estimation for the timeline of the project.
-  - Frontend 4 hours.
-  - Backend: 4 hours
-  - Git, writeup + misc: 1 hour
-  - Total: 9 hour.
+- I recommend installing SQLite3 Editor Extension on VSCode to visualize the database.
 
-## Personal Additions / Assumptions
+- (see below) I have bundled my frontend production build and included them in this repository. So there is no need to install nodejs.
+  - However, I have included steps to run the frontend if you'd like to run it separately.
 
-- Personal Addition: Added HawkID field. So each submission can be traced to a unique employee.
-- Personal Addition: Disabled the submit button until the 4 fields - HawkID, Date, Receipt, and Amount are filled for an intuitive user experience.
-- Assumption: SQL Injection proof query for better security.
-- Personal Addition + Assumption: Alongside storing the images as a blob in the database, I also store them in a folder called 'receipts'.
-  - I added this feature to mainly ensure that the pdfs and images were properly being transmitted from frontend to backend.
-  - The naming convention for receipts is: hawkID + date + amount + uuid.
-    - uuid is to guarantee that no two receipts will have the same name.
-- Personal Addition: added logging to keep track of backend and gain more insight if anything goes wrong.
+## Pre-work: Installations
 
-## Design
+### Python
 
-- Generated the general design idea for the web app using Figma. (See Initial Design.png inside concept folder)
-- Used University of Iowa [Brand Manual](https://brand.uiowa.edu/color) for font, color, and logo.
-- Time taken: 1 hour.
+- Make sure you have python installed on your machine.
+  - [Download python](https://www.python.org/downloads/)
+  - For reference I have python version `3.9.6`
 
-## Frontend
+### Node -- Optional
 
-**Tools used:** ReactJS, Bootstrap, CSS, React-Bootstrap
+- I have included production build in github repo in `client/dist` and have hosted the frontend from the flask API.
+- So there is no need to run the frontend separately.
 
-- The current design looks different from what I had initially designed.
+- Make sure you have node installed.
+  - [Download node](https://nodejs.org/en/download)
+  - For reference I have node version `22.12.0`
 
-  - After doing some research for frontend design I found the react-bootstrap form components.
+## Running the application
 
-- Time taken: 3 hours.
+### Server
 
-## Backend
+0. Make sure you have python installed (see above)
+1. Navigate to the repository.
+1. Inside the server folder create a python virtual environment
+   ```bash
+   # same for macos and windows
+   # the name for the python instance may be different.
+   # for me it's python3, you may have py, python ...etc
+   # .env is the name for your virtual environment, you can name is anything you'd like
+   python3 -m venv .env
+   ```
+1. Activate the virtual environment
 
-**Tools used:** Python, Flask, Sqlite3
+   ```bash
+   # macos
+   source .env/bin/activate
 
-- Since the requirement only mentions sending the data, I only created a function to add a row to the db.
+   # windows
+   .env/Scripts/activate
+   ```
 
-- 2.5 hours.
+1. Install python dependencies
+   ```bash
+   # I have included a requirements.txt in the server folder.
+   pip install -r requirements.txt
+   ```
+1. run the server
+   ```bash
+   python3 app.py
+   ```
+1. open a web browser and navigate to `127.0.0.1:5000`
 
-## Total
+### Client
 
-- Time taken: 6.5 hours.
-  - Reflection - I was able to finish the backed earilier than I anticipated.
-  - For the frontend, I spent some time trying out different UIs until I settled on the one I found appealing.
+- Note: this is not mandatory to see the frontend. <br>
+  However, if you'd like to run the frontend separately, feel free to continue ahead.
+
+0. Make sure you have node.js installed (see above).
+1. Navigate to the repository folder
+1. Navigate to client folder
+1. Install frontend dependencies
+   ```bash
+   npm install
+   ```
+1. start the frontend
+   ```bash
+   npm run dev
+   ```
+1. your default web browser should open up `http://localhost:5173/`.
+   - If it doesn't, please manually navigate to `http://localhost:5173/` to see the frontend.
