@@ -15,11 +15,11 @@
 ## Personal Additions / Assumptions
 
 - Personal Addition: Added HawkID field. So each submission can be traced to a unique employee.
-- Personal Addition: Disabled the submit button until all 3 fields (HawkID, Date, Receipt) are filled for an intuitive user experience.
-- Assumption: SQL Injection Proof queries for better security.
-- Personal Addition + Assumption: Alongside storing the images as a blob, we also store it in a folder called 'receipts'.
-  - I added this feature to mainly ensure that the pdfs and images were properly being sent over and stored.
-  - The name convention for receipts is: hawkID + date + amount + uuid.
+- Personal Addition: Disabled the submit button until all 4 fields (HawkID, Date, Receipt, Amount) are filled for an intuitive user experience.
+- Assumption: SQL Injection proof querie for better security.
+- Personal Addition + Assumption: Alongside storing the images as a blob in the database, I also store it in a folder called 'receipts'.
+  - I added this feature to mainly ensure that the pdfs and images were properly being sent over.
+  - The naming convention for receipts is: hawkID + date + amount + uuid.
     - uuid is to guarantee that no two receipts will have the same name.
 
 ## Design
