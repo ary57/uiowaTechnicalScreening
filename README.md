@@ -23,6 +23,7 @@
   - I added this feature to mainly ensure that the pdfs and images were properly being transmitted from frontend to backend.
   - The naming convention for receipts is: hawkID + date + amount + uuid.
     - uuid is to guarantee that no two receipts will have the same name.
+- Personal Addition: added logging to keep track of backend and gain more insight if anything goes wrong.
 
 ## Design
 
