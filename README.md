@@ -3,6 +3,7 @@
 ## Note:
 
 - I'd recommend installing SQLite3 Editor Extension on VSCode to visualize the database.
+- Please see Setup.md for setup instructions. 
 
 ## Initial Estimate
 
