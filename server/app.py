@@ -67,9 +67,9 @@ def save_receipt(hawkID:str,date:str, amount:str, receipt: FileStorage) -> None:
     Saves the receipt to a file and returns the file path.
     """
     if receipt:
-        logger.info("info", f"Saving receipt for hawkID: {hawkID}, date: {date}, amount: {amount}")
+        logger.info(f"Saving receipt for hawkID: {hawkID}, date: {date}, amount: {amount}")
         filename = f"{hawkID}_{date}_{amount}_{uuid.uuid4()}.{receipt.filename.split('.')[-1]}"
-        logger.info("info", f"Receipt filename: {filename}")
+        logger.info(f"Receipt filename: {filename}")
         filepath = f"{RECEIPT_DIR}/{filename}"
         receipt.save(filepath)
 
@@ -78,7 +78,7 @@ def parse_inputs(
         hawkID:str, 
         date:str, 
         amount:str, 
-        receipt:FileStorage, 
+        receipt:FileStorage,
         description:str) -> tuple[str, datetime.date, float, FileStorage, str]:
     """
     Takes input parameters and converts them to appropriate types.
@@ -97,3 +97,5 @@ def parse_inputs(
 
 if __name__ == "__main__":
     app.run(debug=True, port=5000)
+    # print(__file__)
+    # print(__name__)

@@ -140,7 +140,7 @@ function InputForm() {
           className="border-0"
           type="submit"
           style={{ backgroundColor: "#00664F" }}
-          disabled={isSubmitting || !hawkID || !date || !amount || !receipt}
+          // disabled={isSubmitting || !hawkID || !date || !amount || !receipt}
         >
           Submit
         </Button>

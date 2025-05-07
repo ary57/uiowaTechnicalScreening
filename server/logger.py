@@ -18,6 +18,7 @@ def get_logger(logger_name: str = __name__) -> logging.Logger:
     # Only add handlers if the logger doesn't have any
     if not logger.handlers:
         logger.setLevel(logging.INFO)
+        # info, warning, errors
         
         # Create logs directory if it doesn't exist
         log_dir = "logs"
